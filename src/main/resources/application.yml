@@ -1,0 +1,26 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      master:
+        url: jdbc:mysql://127.0.0.1:3306/db1?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: username
+        password: password
+        driver-class-name: com.mysql.jdbc.Driver
+      slave:
+        url: jdbc:mysql://127.0.0.1:3306/db2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: username
+        password: password
+        driver-class-name: com.mysql.jdbc.Driver
+
+#mybatis����
+mybatis:
+  # ����ָ��������
+  type-aliases-package: com.example.springdatasource.dto
+  # ����mapper��ɨ�裬�ҵ����е�mapper.xmlӳ���ļ�
+  mapperLocations: classpath:mapper/*Mapper.xml
+  # ����ȫ�ֵ������ļ�
+  configLocation: classpath:mapper/mybatis-config.xml

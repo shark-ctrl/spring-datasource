@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springdatasource.mapper.CommonMapper">
+
+
+    <insert id="saveOrderInfo">
+        INSERT INTO db2.`order` (uid, cid, total) VALUES(#{uid}, #{cid}, #{total});
+
+    </insert>
+    <insert id="saveUser">
+        INSERT INTO db1.`user` (name, id) VALUES(#{name}, #{id});
+
+    </insert>
+
+
+    <select id="getCarInfo" resultType="com.example.springdatasource.dto.Car">
+        select * from car where id=#{cid}
+    </select>
+
+    <select id="getNewDataSourceInfo" resultType="com.example.springdatasource.dto.DataSourceInfo">
+        select * from datasourceinfo where dataSourceKey=#{sourceKey}
+    </select>
+
+    <select id="getUserInfo" resultType="com.example.springdatasource.dto.User">
+        select * from `user` where id=#{uid}
+    </select>
+</mapper>
